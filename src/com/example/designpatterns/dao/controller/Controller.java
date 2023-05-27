@@ -2,9 +2,7 @@ package com.example.designpatterns.dao.controller;
 
 import java.sql.SQLException;
 
-import com.example.designpatterns.dao.model.Model;
-import com.example.designpatterns.dao.model.Person;
-import com.example.designpatterns.dao.model.PersonDAO;
+import com.example.designpatterns.dao.model.*;
 import com.example.designpatterns.dao.view.CreateUserEvent;
 import com.example.designpatterns.dao.view.CreateUserListener;
 import com.example.designpatterns.dao.view.View;
@@ -14,8 +12,9 @@ public class Controller implements CreateUserListener {
 	private View view;
 	private Model model;
 	
-	private PersonDAO personDAO = new PersonDAO();
-	
+//	private PersonDAO personDAO = new PersonDAO();
+	private PersonDAO personDAO = DAOFactory.getPersonDAO();
+
 	public Controller(View view, Model model) {
 		this.view = view;
 		this.model = model;
